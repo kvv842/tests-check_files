@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CheckFilesConsoleApp1": {
+      "commandName": "Project",
+      "commandLineArgs": "c:\\temp"
+    }
+  }
+}
