@@ -1,6 +1,7 @@
 ﻿using CheckFilesConsoleApp1.Operations;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CheckFilesConsoleApp1.Files
 {
@@ -16,7 +17,9 @@ namespace CheckFilesConsoleApp1.Files
 
             if (Extensions.Any(a => a.ToUpper() == ext))
             {
-                var text = System.IO.File.ReadAllText(fullPath); 
+                Task.Delay(100).GetAwaiter().GetResult();
+
+                var text = System.IO.File.ReadAllText(fullPath);
 
                 var result = Operation.Do(text);
 

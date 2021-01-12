@@ -1,7 +1,4 @@
 ﻿using CheckFilesConsoleApp1.Operations;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CheckFilesConsoleApp1.Files
 {
@@ -9,6 +6,6 @@ namespace CheckFilesConsoleApp1.Files
     {
         public override string[] Extensions => new[] { ".CSS" };
 
-        public override IOperation Operation { get; } = new CountDivOperation();
+        public override IOperation Operation { get; } = new BracesOperation();
     }
 }

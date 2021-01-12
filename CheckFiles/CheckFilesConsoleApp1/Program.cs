@@ -13,9 +13,10 @@ namespace CheckFilesConsoleApp1
         static void Main(string[] args)
         {
             _observibleFiles.Add(new HtmlFile());
+            _observibleFiles.Add(new CssFile());
+            _observibleFiles.Add(new OtherTextFile());
 
             RunWatcher();
-            Console.WriteLine("Hello World!");
         }
 
         private static void RunWatcher()
@@ -33,18 +34,16 @@ namespace CheckFilesConsoleApp1
                                      | NotifyFilters.FileName
                                      | NotifyFilters.DirectoryName;
 
-                watcher.Created += OnChanged;
+                watcher.Created += OnCreated;
 
-                // Begin watching.
                 watcher.EnableRaisingEvents = true;
 
-                // Wait for the user to quit the program.
-                Console.WriteLine("Press 'q' to quit the sample.");
-                while (Console.Read() != 'q') ;
+                Console.WriteLine("Press 'any key' to quit the sample.");
+                Console.ReadKey();
             }
         }
 
-        private static void OnChanged(object source, FileSystemEventArgs e)
+        private static void OnCreated(object source, FileSystemEventArgs e)
         {
             _observibleFiles.ForEach(a => a.Check(e.FullPath));
 
